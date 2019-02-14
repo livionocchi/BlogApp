@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Another Blog</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navBar">
+    <ul>
+      <li><a href="/register">sign in</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/posts">guest</a>
+        <div class="line"></div>
+      </li>
+    </ul>
+  </nav>
+  <center class='homepage'>
+    <h1 class="title">Another Blog</h1>
+    <p class="nav">inspiring quote</p>
+    <div class="banner">
+    </div>
+    <form action='/' method='POST' id="form">
+      <label>
+        <input class="input" type="email" placeholder="email" name="email" autocomplete="off" onblur="checkMail(this.value)">
+        <svg viewBox="0 0 20 20" class="Icon">
+          <path d="M0 0 L10 10 L0 20"></path>
+        </svg>
+        <div class="line"></div>
+      </label>
+      <label class="Label">
+        <input class="input" type="password" placeholder="password" name="password" autocomplete="off" onblur="checkPssw(this.value)">
+        <svg viewBox="0 0 20 20" class="Icon">
+          <path d="M0 0 L10 10 L0 20"></path>
+        </svg>
+        <div class="line"></div>
+      </label>
+      <div class="button" id="loginButton">
+        <button class="bttn" type="submit">log in</button>
+      </div>
+    </form>
+
+    <div id="error"></div>
+    <div class="tools">
+      <div class="toolIcon"></div>
+      <div class="toolIcon"></div>
+      <div class="toolIcon"></div>
+      <div class="toolIcon"></div>
+    </div>
+  </center>
+</body>
+
+</html>

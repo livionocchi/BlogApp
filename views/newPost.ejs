@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Find a user</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navBar">
+    <ul>
+      <li><a href="/posts">all posts</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/profile">dashboard</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/logout">log-out</a>
+        <div class="line"></div>
+      </li>
+    </ul>
+  </nav>
+  <center class="newPostForm">
+    <h1>Create a New Post:</h1>
+    <form action='/newPost' method='POST'>
+      <article class="card">
+        <label>
+          <input class="input" type="text" placeholder="title" name="title" autocomplete="off" onblur="checkPssw(this.value)">
+        </label>
+        <label class="Label">
+          <textarea class="input" placeholder="body" name="body" autocomplete="off" onblur="checkPssw(this.value)"></textarea>
+        </label>
+      </article>
+
+      <div class="navigation">
+        <button class="bttn">post</button>
+      </div>
+    </form>
+
+    <div id="error"></div>
+  </center>
+</body>
+
+</html>

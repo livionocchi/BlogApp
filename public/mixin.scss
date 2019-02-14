@@ -1,0 +1,202 @@
+@mixin form {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+
+    label {
+      width: 100%;
+      max-width: 20em;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      textarea {
+        resize: none;
+        height: 74px!important;
+        font-size: $fontSize * 0.9 !important;
+        font-family: $fontFam;
+        font-weight: normal!important;
+      }
+
+      .input {
+        flex-grow: 1;
+        box-sizing: border-box;
+        background-color: transparent;
+        text-align: center;
+        font-size: $fontSize;
+        font-family: $fontFam;
+        font-weight: bold;
+        display: block;
+        margin: 10px 0;
+        border: none;
+        padding: 0.5em 0;
+        height: 37px;
+        transition: border-color 0.2s;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .Icon {
+        width: 1rem;
+        order: -1;
+        transition: all 0.2s;
+        stroke-dasharray: 0, 20;
+        stroke-dashoffset: -14.142;
+        path {
+          stroke: $txtColor;
+          stroke-width: 2px;
+          fill: none;
+        }
+      }
+
+      .input:focus + .Icon {
+        stroke-dasharray: 28.284, 20;
+        stroke-dashoffset: 0;
+      }
+
+      .line {
+        width: 100%;
+        margin: 0 0 5px 16px;
+        background-color: $txtColor;
+      }
+
+      .input:focus + .Icon + .line {
+        height: 1.5px;
+        background-color: #000;
+      }
+
+      .input:invalid + .Icon + .line {
+        height: 1.5px;
+        background-color: $redTxtColor;
+      }
+    }
+  }
+}
+
+@mixin button {
+  .button {
+    margin: 20px -16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .bttn {
+    color: $txtColor;
+    text-transform: uppercase;
+    font-family: $depFont;
+    letter-spacing: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    display:inline-block;
+    width: 120px;
+    height: 40px;
+    padding:5px 0px;
+    border:1px solid #000000;
+    border-radius:1px;
+    position:relative;
+    -webkit-transition:.1s .2s all ease;
+    transition:.1s .2s ease all;
+    &:before {
+      -webkit-transition:.2s .1s all ease;
+      transition:.2s .1s all ease;
+      position:absolute;
+      top:0;
+      left:50%;
+      right:50%;
+      bottom:0;
+      opacity:0;
+      content:'';
+      background-color: $depColor;
+      z-index:-2;
+    }
+    &:hover {
+      &:before {
+        -webkit-transition:.2s .1s all ease;
+        transition:.2s .1s all ease;
+        left:0;
+        right:0;
+        opacity:1;
+      }
+    }
+    &:focus {
+      &:before {
+        transition: .5s .5s all ease;
+        left:0;
+        right:0;
+        opacity:1;
+      }
+    }
+  }
+
+  a {
+    color:$depColor;
+    -webkit-transition:.1s .2s all ease;
+    transition:.1s .2s ease all;
+  }
+}
+
+// @mixin nav {
+//   li {
+//     a {
+//   font-size: 20px;
+//   color: brown;
+//   position: relative;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   padding-bottom: 8px;
+//
+//    &:before,
+// 	&:after {
+// 		content: '';
+// 		position: absolute;
+// 		bottom: 2px;
+// 		left: 0; right: 0;
+// 		height: 2px;
+// 		background-color: red;
+// 	}
+// 	&:before {
+// 		opacity: 0;
+// 		transform: translateY(- $distance);
+// 		transition: transform 0s $easeOutBack, opacity 0s;
+// 	}
+// 	&:after {
+// 		opacity: 0;
+// 		transform: translateY($distance/2);
+// 		transition: transform $duration $easeOutBack, opacity $duration;
+// 	}
+// 	&:hover,
+// 	&:focus {
+// 		&:before,
+// 		&:after {
+// 			opacity: 1;
+// 			transform: translateY(0);
+// 		}
+// 		&:before {
+// 			transition: transform $duration $easeOutBack, opacity $duration;
+// 		}
+// 		&:after {
+// 			transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+// 		}
+// 	}
+// }
+//   }
+// }
+
+@mixin mQ ($arg...){
+  @if length($arg) == 1 {
+    @media screen and (max-width: nth($arg, 1)) {
+      @content;
+    }
+  }
+
+  @if length($arg) == 2 {
+    @media screen and (max-width: nth($arg, 1)) and (min-width: nth($arg, 2)) {
+      @content;
+    }
+  }
+}

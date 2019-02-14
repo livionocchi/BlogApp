@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Another Blog - New User</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navBar">
+    <ul>
+      <li><a href="/">home</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/posts">guest</a>
+        <div class="line"></div>
+      </li>
+    </ul>
+  </nav>
+  <center class="registration">
+    <h1>Create an account:</h1>
+    <form action="/register" method="POST">
+      <label>
+        <input class="input" type="email" placeholder="email" name="email" autocomplete="off" onblur="checkMail(this.value)">
+        <svg viewBox="0 0 20 20" class="Icon">
+          <path d="M0 0 L10 10 L0 20" />
+        </svg>
+        <div class="line"></div>
+      </label>
+      <label>
+        <input class="input" type="password" name="password" placeholder="password" autocomplete="off" onblur="checkPssw(this.value)" minlength="3">
+        <svg viewBox="0 0 20 20" class="Icon">
+          <path d="M0 0 L10 10 L0 20" />
+        </svg>
+        <div class="line"></div>
+      </label>
+      <div class="navigation">
+        <button class="bttn" type="submit">create</button>
+      </div>
+    </form>
+    <div id="error"></div>
+  </center>
+</body>
+
+</html>

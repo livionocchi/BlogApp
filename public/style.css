@@ -1,0 +1,716 @@
+html {
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: #ffffff;
+  color: #5c505f;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  letter-spacing: 4px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 25px 10px 25px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  height: 25px;
+}
+ul li {
+  width: 100%/3;
+  list-style: none;
+  align-content: space-around;
+}
+ul li:hover {
+  color: #e7e6e5;
+}
+ul li:hover .line {
+  display: block;
+}
+ul li a {
+  text-decoration: none;
+  color: #5c505f;
+}
+ul li .line {
+  width: 80%;
+  background-color: #000000;
+  height: 1px;
+  margin-top: 5px;
+  position: relative;
+  left: 8.7%;
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #5c505f;
+  margin: 0 !important;
+}
+
+h1, h2, h3 {
+  margin: 10px 20%;
+  font-weight: 400;
+  color: #000000;
+}
+
+.line {
+  width: 80%;
+  background-color: #000000;
+  height: 1px;
+  margin: 20px 0 5px 0;
+}
+
+.secondline {
+  width: 80%;
+  background-color: #000000;
+  height: 1px;
+  margin: 5px 0 20px 0;
+}
+
+.postBody {
+  color: #000000;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+.nav {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.homepage .banner {
+  background-image: url("images/banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90%;
+  min-height: 300px;
+}
+.homepage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+.homepage form label {
+  width: 100%;
+  max-width: 20em;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.homepage form label textarea {
+  resize: none;
+  height: 74px !important;
+  font-size: 0.9rem !important;
+  font-family: "Playfair Display", serif;
+  font-weight: normal !important;
+}
+.homepage form label .input {
+  flex-grow: 1;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+  border: none;
+  padding: 0.5em 0;
+  height: 37px;
+  transition: border-color 0.2s;
+}
+.homepage form label .input:focus {
+  outline: none;
+}
+.homepage form label .Icon {
+  width: 1rem;
+  order: -1;
+  transition: all 0.2s;
+  stroke-dasharray: 0, 20;
+  stroke-dashoffset: -14.142;
+}
+.homepage form label .Icon path {
+  stroke: #5c505f;
+  stroke-width: 2px;
+  fill: none;
+}
+.homepage form label .input:focus + .Icon {
+  stroke-dasharray: 28.284, 20;
+  stroke-dashoffset: 0;
+}
+.homepage form label .line {
+  width: 100%;
+  margin: 0 0 5px 16px;
+  background-color: #5c505f;
+}
+.homepage form label .input:focus + .Icon + .line {
+  height: 1.5px;
+  background-color: #000;
+}
+.homepage form label .input:invalid + .Icon + .line {
+  height: 1.5px;
+  background-color: #ed5656;
+}
+.homepage .button {
+  margin: 20px -16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.homepage .bttn {
+  color: #5c505f;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  padding: 5px 0px;
+  border: 1px solid #000000;
+  border-radius: 1px;
+  position: relative;
+  -webkit-transition: 0.1s 0.2s all ease;
+  transition: 0.1s 0.2s ease all;
+}
+.homepage .bttn:before {
+  -webkit-transition: 0.2s 0.1s all ease;
+  transition: 0.2s 0.1s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #e7e6e5;
+  z-index: -2;
+}
+.homepage .bttn:hover:before {
+  -webkit-transition: 0.2s 0.1s all ease;
+  transition: 0.2s 0.1s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.homepage .bttn:focus:before {
+  transition: 0.5s 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.homepage a {
+  color: #e7e6e5;
+  -webkit-transition: 0.1s 0.2s all ease;
+  transition: 0.1s 0.2s ease all;
+}
+.homepage .navigation {
+  margin-left: 16px;
+}
+
+.registration form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+.registration form label {
+  width: 100%;
+  max-width: 20em;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.registration form label textarea {
+  resize: none;
+  height: 74px !important;
+  font-size: 0.9rem !important;
+  font-family: "Playfair Display", serif;
+  font-weight: normal !important;
+}
+.registration form label .input {
+  flex-grow: 1;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+  border: none;
+  padding: 0.5em 0;
+  height: 37px;
+  transition: border-color 0.2s;
+}
+.registration form label .input:focus {
+  outline: none;
+}
+.registration form label .Icon {
+  width: 1rem;
+  order: -1;
+  transition: all 0.2s;
+  stroke-dasharray: 0, 20;
+  stroke-dashoffset: -14.142;
+}
+.registration form label .Icon path {
+  stroke: #5c505f;
+  stroke-width: 2px;
+  fill: none;
+}
+.registration form label .input:focus + .Icon {
+  stroke-dasharray: 28.284, 20;
+  stroke-dashoffset: 0;
+}
+.registration form label .line {
+  width: 100%;
+  margin: 0 0 5px 16px;
+  background-color: #5c505f;
+}
+.registration form label .input:focus + .Icon + .line {
+  height: 1.5px;
+  background-color: #000;
+}
+.registration form label .input:invalid + .Icon + .line {
+  height: 1.5px;
+  background-color: #ed5656;
+}
+.registration .button {
+  margin: 20px -16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.registration .bttn {
+  color: #5c505f;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  padding: 5px 0px;
+  border: 1px solid #000000;
+  border-radius: 1px;
+  position: relative;
+  -webkit-transition: 0.1s 0.2s all ease;
+  transition: 0.1s 0.2s ease all;
+}
+.registration .bttn:before {
+  -webkit-transition: 0.2s 0.1s all ease;
+  transition: 0.2s 0.1s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #e7e6e5;
+  z-index: -2;
+}
+.registration .bttn:hover:before {
+  -webkit-transition: 0.2s 0.1s all ease;
+  transition: 0.2s 0.1s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.registration .bttn:focus:before {
+  transition: 0.5s 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.registration a {
+  color: #e7e6e5;
+  -webkit-transition: 0.1s 0.2s all ease;
+  transition: 0.1s 0.2s ease all;
+}
+.registration .navigation {
+  margin-left: 16px;
+}
+
+.profile .title {
+  font-size: 2rem;
+}
+.profile .banner {
+  background-image: url("images/banner2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90%;
+  min-height: 300px;
+}
+
+#textareaNav {
+  margin-top: 50px;
+}
+
+#error {
+  color: #ed5656;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  margin-left: 16px;
+}
+
+.newPostForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+.newPostForm form label {
+  width: 100%;
+  max-width: 20em;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.newPostForm form label textarea {
+  resize: none;
+  height: 74px !important;
+  font-size: 0.9rem !important;
+  font-family: "Playfair Display", serif;
+  font-weight: normal !important;
+}
+.newPostForm form label .input {
+  flex-grow: 1;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+  border: none;
+  padding: 0.5em 0;
+  height: 37px;
+  transition: border-color 0.2s;
+}
+.newPostForm form label .input:focus {
+  outline: none;
+}
+.newPostForm form label .Icon {
+  width: 1rem;
+  order: -1;
+  transition: all 0.2s;
+  stroke-dasharray: 0, 20;
+  stroke-dashoffset: -14.142;
+}
+.newPostForm form label .Icon path {
+  stroke: #5c505f;
+  stroke-width: 2px;
+  fill: none;
+}
+.newPostForm form label .input:focus + .Icon {
+  stroke-dasharray: 28.284, 20;
+  stroke-dashoffset: 0;
+}
+.newPostForm form label .line {
+  width: 100%;
+  margin: 0 0 5px 16px;
+  background-color: #5c505f;
+}
+.newPostForm form label .input:focus + .Icon + .line {
+  height: 1.5px;
+  background-color: #000;
+}
+.newPostForm form label .input:invalid + .Icon + .line {
+  height: 1.5px;
+  background-color: #ed5656;
+}
+.newPostForm form .card {
+  width: 95%;
+  margin: 20px 0 0 0;
+}
+.newPostForm form .card label {
+  max-width: 80%;
+}
+.newPostForm form .card input, .newPostForm form .card textarea {
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.navigation .button {
+  margin: 20px -16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navigation .bttn {
+  color: #5c505f;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  padding: 5px 0px;
+  border: 1px solid #000000;
+  border-radius: 1px;
+  position: relative;
+  -webkit-transition: 0.1s 0.2s all ease;
+  transition: 0.1s 0.2s ease all;
+}
+.navigation .bttn:before {
+  -webkit-transition: 0.2s 0.1s all ease;
+  transition: 0.2s 0.1s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: "";
+  background-color: #e7e6e5;
+  z-index: -2;
+}
+.navigation .bttn:hover:before {
+  -webkit-transition: 0.2s 0.1s all ease;
+  transition: 0.2s 0.1s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.navigation .bttn:focus:before {
+  transition: 0.5s 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.navigation a {
+  color: #e7e6e5;
+  -webkit-transition: 0.1s 0.2s all ease;
+  transition: 0.1s 0.2s ease all;
+}
+
+.card {
+  background-color: #e7e6e5;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card .delButton {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  color: #ed5656;
+  float: right;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 9px;
+  transition: 0.3s;
+}
+.card .delButton:hover {
+  color: #9a1010;
+}
+.card .postFooter {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  margin: 20px 5px 0 5px;
+  height: 30px;
+}
+.card .postFooter .commentButton {
+  float: left;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.card .postFooter .commentButton:hover .line {
+  display: block;
+}
+.card .postFooter .commentButton .line {
+  width: 80%;
+  background-color: #000000;
+  height: 1px;
+  margin-top: 5px;
+  position: relative;
+  display: none;
+}
+.card .postFooter .publisher {
+  margin: 0;
+  float: right;
+}
+
+.comments {
+  font-size: 0.6666666667rem;
+  background-color: #ffffff;
+  padding: 40px;
+  margin-top: 20px;
+}
+.comments form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+.comments form label {
+  width: 100%;
+  max-width: 20em;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.comments form label textarea {
+  resize: none;
+  height: 74px !important;
+  font-size: 0.9rem !important;
+  font-family: "Playfair Display", serif;
+  font-weight: normal !important;
+}
+.comments form label .input {
+  flex-grow: 1;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+  border: none;
+  padding: 0.5em 0;
+  height: 37px;
+  transition: border-color 0.2s;
+}
+.comments form label .input:focus {
+  outline: none;
+}
+.comments form label .Icon {
+  width: 1rem;
+  order: -1;
+  transition: all 0.2s;
+  stroke-dasharray: 0, 20;
+  stroke-dashoffset: -14.142;
+}
+.comments form label .Icon path {
+  stroke: #5c505f;
+  stroke-width: 2px;
+  fill: none;
+}
+.comments form label .input:focus + .Icon {
+  stroke-dasharray: 28.284, 20;
+  stroke-dashoffset: 0;
+}
+.comments form label .line {
+  width: 100%;
+  margin: 0 0 5px 16px;
+  background-color: #5c505f;
+}
+.comments form label .input:focus + .Icon + .line {
+  height: 1.5px;
+  background-color: #000;
+}
+.comments form label .input:invalid + .Icon + .line {
+  height: 1.5px;
+  background-color: #ed5656;
+}
+.comments .commentForm {
+  margin: 20px 0 0 -16px;
+}
+.comments .commentForm button {
+  margin-left: 16px;
+}
+.comments .singleComment {
+  background-color: #ffffff;
+  min-height: 60px;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+}
+.comments .singleComment p {
+  position: relative;
+  width: 80%;
+}
+.comments .singleComment .delButtonComment {
+  font-family: "Montserrat", sans-serif;
+  float: right;
+  color: #ed5656;
+  text-transform: uppercase;
+  cursor: pointer;
+  top: -9px;
+  position: relative;
+  margin-right: 4.5px;
+  transition: 0.3s;
+}
+.comments .singleComment .delButtonComment:hover {
+  color: #9a1010;
+}
+.comments .singleComment .commentFooter {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.comments .singleComment .commentFooter #created {
+  width: 50%;
+  text-align: left;
+  float: left;
+}
+.comments .singleComment .commentFooter #publisherComment {
+  text-transform: lowercase;
+  width: 50%;
+  text-align: right;
+  float: right;
+}
+.comments .newSingleComment {
+  background-color: blue;
+}
+
+.tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  height: 50px;
+}
+.tools .toolIcon {
+  width: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+.tools :nth-child(1) {
+  background-image: url("./images/psql.png");
+}
+.tools :nth-child(2) {
+  background-image: url("./images/sass.png");
+  width: 35px;
+}
+.tools :nth-child(3) {
+  background-image: url("./images/jquery.png");
+}
+.tools :nth-child(4) {
+  background-image: url("./images/node.png");
+}
+
+/*# sourceMappingURL=style.css.map */

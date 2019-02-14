@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Another Blog - Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navBar">
+    <ul>
+      <li><a href="/newPost">new post</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/posts">all posts</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/logout">log-out</a>
+        <div class="line"></div>
+      </li>
+    </ul>
+  </nav>
+  <center class="profile">
+    <h2 class="title">Ciao,
+      <span style="text-transform: lowercase">
+        <%= user.email.substring(0, user.email.lastIndexOf("@")) %></span>
+    </h2>
+    <p class="nav">welcome back</p>
+    <div class="banner"></div>
+    <div class="line"></div>
+    <div class="secondline"></div>
+    <h2 class="title">Your posts:</h2>
+
+    <% if (posts.length === 0) { %>
+    <p class="payoff">you don't have any, yet!</p>
+    <div class="navigation">
+      <a href="/newPost" class="button"><button class="bttn">new post</button></a>
+    </div>
+    <% } else { %>
+    <% posts.forEach((post) =>{ %>
+    <article class="card" id="<%= post.id %>">
+      <div class="delButton">delete</div>
+      <h2>
+        <%= post.title %>
+      </h2>
+      <p class="postBody">
+        <%= post.body %>
+      </p>
+      <div class="postFooter">
+        <p class="publisher">
+          <%= `${post.createdAt.getDate()}.${post.createdAt.getMonth() + 1}.${post.createdAt.getFullYear()}` %>
+        </p>
+      </div>
+    </article>
+    <% })} %>
+  </center>
+</body>
+
+</html>

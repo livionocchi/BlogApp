@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Another Blog - Posts</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navBar">
+    <ul>
+      <% if(!currentUserId) { %>
+      <li><a href="/register">sign in</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/">home</a>
+        <div class="line"></div>
+      </li>
+      <% } %>
+      <% if(currentUserId.length != 0) { %>
+      <li><a href="/newPost">new post</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/profile">dashboard</a>
+        <div class="line"></div>
+      </li>
+      <li><a href="/logout">log-out</a>
+        <div class="line"></div>
+      </li>
+      <% }%>
+    </ul>
+  </nav>
+  <center>
+    <h1>All the posts:</h1>
+
+    <% if(posts.length === 0) { %>
+    <h3>no post yet! be the first</h3>
+    <div class="navigation">
+      <a href="/newPost" class="button"><button class="bttn">new post</button></a>
+    </div>
+    <% } else { %>
+    <% posts.forEach((post) =>{ %>
+    <article class="card" id="<%= post.id %>">
+      <% if(currentUserId === post.userId) { %>
+      <div class="delButton">delete</div>
+      <% } %>
+      <h2>
+        <%= post.title %>
+      </h2>
+      <p class="postBody">
+        <%= post.body %>
+      </p>
+      <div class="postFooter">
+        <p class="publisher">
+          <%= post.user.email %>
+        </p>
+        <div class="commentButton">
+          comments
+          <div class="line"></div>
+        </div>
+
+      </div>
+
+      <div class="comments">
+        <% if (post.comment.length === 0) { %>
+        <h3 class="singleComment">no comment yet! be the first</h3>
+        <% } else { post.comment.forEach((comment) =>{%>
+        <div class="singleComment" id="<%= comment.id %>">
+          <% if(currentUserId === comment.userId) { %>
+          <div class="delButtonComment">delete</div>
+          <% } %>
+          <p>
+            <%= comment.comment %>
+          </p>
+          <div class="commentFooter">
+            <p class="nav" id="created">
+              <%= `${comment.createdAt.substring(8,10)}.${comment.createdAt.substring(6,7)}.${comment.createdAt.substring(0,4)}` %>
+            </p>
+            <p class="nav" id="publisherComment">
+              <%= comment.commentUser %>
+            </p>
+          </div>
+
+        </div>
+        <% })} %>
+
+        <% if(currentUserId.length != 0) { %>
+        <form class="commentForm">
+          <label class="Label">
+            <textarea class="input" placeholder="write your comment" autocomplete="off"></textarea>
+            <svg viewBox="0 0 20 20" class="Icon">
+              <path d="M0 0 L10 10 L0 20"></path>
+            </svg>
+            <div class="line"></div>
+          </label>
+          <div class="navigation" id="textareaNav">
+            <button class="bttn commentFormButton">comment</button>
+          </div>
+        </form>
+        <% } %>
+      </div>
+    </article>
+    <% }) %>
+
+    <% if(!currentUserId) { %>
+    <div class="navigation">
+      <a href="/" class="button"><button class="bttn" style="width:180px">home</button></a>
+    </div>
+    <% } %>
+    <% if(currentUserId.length != 0) { %>
+    <div class="navigation">
+      <a href="/profile" class="button"><button class="bttn" style="width:180px">dashboard</button></a>
+    </div>
+    <% }} %>
+  </center>
+</body>
+
+</html>

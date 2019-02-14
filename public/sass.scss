@@ -1,0 +1,317 @@
+@import 'var.scss';
+@import 'mixin.scss';
+
+
+html {
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+  background-color: $bgColor;
+  color: $txtColor;
+  font-family: $fontFam;
+  font-size: $fontSize;
+  letter-spacing: 4px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 25px 10px 25px;
+  font-family: $depFont;
+  text-transform: uppercase;
+  height: 25px;
+  li {
+    width: 100% / 3;
+    list-style: none;
+    align-content: space-around;
+    &:hover {
+      color: $depColor;
+      .line {
+        display: block;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $txtColor;
+    }
+    .line {
+      width: 80%;
+      background-color: #000000;
+      height: 1px;
+      margin-top: 5px;
+      position: relative;
+      left: 8.7%;
+      display: none;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: $txtColor;
+  margin: 0!important;
+}
+
+h1, h2, h3 {
+  margin: 10px 20%;
+  font-weight: 400;
+  color: #000000
+}
+
+.line {
+  width: 80%;
+  background-color: #000000;
+  height: 1px;
+  margin: 20px 0 5px 0;
+}
+.secondline {
+  width: 80%;
+  background-color: #000000;
+  height: 1px;
+  margin: 5px 0 20px 0;
+}
+
+.postBody {
+  color: #000000;
+  letter-spacing: 2px;
+  font-size: $fontSize * .9;
+}
+
+.title {
+  font-size: $fontSize * 2.5;
+  margin-bottom: 0;
+}
+.nav {
+  font-family: $depFont;
+  font-size: .7rem;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.homepage {
+  .banner {
+    background-image: url('images/banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90%;
+    min-height: 300px;
+  }
+  @include form;
+  @include button;
+  .navigation {
+    margin-left: 16px;
+  }
+}
+
+.registration {
+  @include form;
+  @include button;
+  .navigation {
+    margin-left: 16px;
+  }
+}
+
+.profile {
+  .title {
+    font-size: $fontSize * 2;
+  }
+  .banner {
+    background-image: url('images/banner2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90%;
+    min-height: 300px;
+  }
+}
+
+#textareaNav {
+  margin-top: 50px;
+}
+
+#error {
+  color: $redTxtColor;
+  font-family: $depFont;
+  text-transform: uppercase;
+  margin-left: 16px;
+}
+
+.newPostForm {
+  @include form;
+  form {
+    .card {
+      width: 95%;
+      margin: 20px 0 0 0;
+
+      label {
+        max-width: 80%;
+      }
+
+      input, textarea {
+        width: 100%;
+      }
+    }
+
+  }
+}
+
+.navigation {
+  @include button;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: $depColor;
+  padding: 20px;
+  margin-top: 20px;
+
+  .delButton {
+    font-family: $depFont;
+    font-size: $fontSize * .8;
+    color: $redTxtColor;
+    float: right;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 9px;
+    transition: .3s;
+    &:hover {
+      color: darken($redTxtColor, 30%);
+    }
+  }
+
+  .postFooter {
+    font-family: $depFont;
+    font-size: $fontSize * .8;
+    margin: 20px 5px 0 5px;
+    height: 30px;
+
+    .commentButton {
+      float: left;
+      cursor: pointer;
+      text-transform: uppercase;
+      &:hover {
+        .line {
+          display: block;
+        }
+      }
+      .line {
+        width: 80%;
+        background-color: #000000;
+        height: 1px;
+        margin-top: 5px;
+        position: relative;
+        display: none;
+      }
+    }
+
+    .publisher {
+      margin: 0;
+      float: right;
+    }
+  }
+}
+
+.comments {
+  font-size: $fontSize/1.5;
+  background-color: $bgColor;
+  padding: 40px;
+  margin-top: 20px;
+  @include form;
+
+  .commentForm {
+    margin: 20px 0 0 -16px;
+    button {
+      margin-left: 16px;
+    }
+  }
+
+  .singleComment {
+    background-color: #ffffff;
+    min-height: 60px;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+
+    p {
+      position: relative;
+      width: 80%;
+    }
+
+    .delButtonComment {
+      font-family: $depFont;
+      float: right;
+      color: $redTxtColor;
+      text-transform: uppercase;
+      cursor: pointer;
+      top: -9px;
+      position: relative;
+      margin-right: 4.5px;
+      transition: .3s;
+      &:hover {
+        color: darken($redTxtColor, 30%);
+      }
+    }
+
+    .commentFooter {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      #created {
+        width: 50%;
+        text-align: left;
+        float: left;
+      }
+
+      #publisherComment {
+        text-transform: lowercase;
+        width: 50%;
+        text-align: right;
+        float: right;
+      }
+    }
+  }
+
+  .newSingleComment {
+    background-color: blue;
+  }
+}
+
+.tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  height: 50px;
+
+  .toolIcon {
+    width: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+  }
+
+  :nth-child(1) {
+    background-image: url('./images/psql.png');
+  }
+  :nth-child(2) {
+    background-image: url('./images/sass.png');
+    width: 35px;
+  }
+  :nth-child(3) {
+    background-image: url('./images/jquery.png');
+  }
+  :nth-child(4) {
+    background-image: url('./images/node.png');
+  }
+}
