@@ -47,9 +47,7 @@ app.route('/')
   // Manages the login form
   .post([
       check('email', 'Wrong email format').isEmail().not().isEmpty(),
-      check('password').isLength({
-        min: 1
-      }).not().isEmpty()
+      check('password').not().isEmpty()
     ],
     (req, res) => {
       let email = req.body.email;
@@ -109,10 +107,13 @@ app.route('/register')
     (req, res) => {
       let email = req.body.email;
       let password = req.body.password;
+      let confirmPassword = req.body.confirmPassword;
+
+      console.log(confirmPassword);
 
       const errors = validationResult(req);
 
-      if (!errors.isEmpty()) {
+      if (!errors.isEmpty() && password !== confirmPassword) {
         res.render('register', {
           errors: errors.array()
         })

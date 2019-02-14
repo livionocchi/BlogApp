@@ -45,6 +45,10 @@
       </div>
     </form>
     <div id="error"></div>
+    % if(locals.errors) { %>
+    <div id="error">Passwords didn't match</div>
+    <% } %>
+    </div>
   </center>
 </body>
 
