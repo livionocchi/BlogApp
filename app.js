@@ -3,6 +3,9 @@ const express = require('express'),
   User = require('./models/user.js'),
   Post = require('./models/post.js'),
   Comment = require('./models/comment.js'),
+  const {
+    Pool
+  } = require('pg'),
   ejs = require('ejs'),
   cookieParser = require('cookie-parser'),
   cookieSession = require('express-session'),
@@ -14,6 +17,11 @@ const express = require('express'),
     validationResult
   } = require('express-validator/check'),
   port = process.env.PORT || 3000;
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
 
 app.set('view engine', 'ejs');
 
@@ -87,6 +95,21 @@ app.route('/')
           })
       }
     });
+
+app.get('/db', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    const result = await client.query('SELECT * FROM test_table');
+    const results = {
+      'results': (result) ? result.rows : null
+    };
+    res.render('pages/db', results);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
 
 app.route('/register')
   // Renders the registration page
