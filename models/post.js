@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize'),
   Comment = require('./comment'),
   path = require('path'),
-  basename = path.basename(__filename),
-  config = require(__dirname + '/../config/config.json').development;
+  basename = path.basename(__filename);
+//config = require(__dirname + '/../config/config.json').development;
 
 const db = new Sequelize(process.env.DATABASE_URL, {
   dialect: "postgres",
