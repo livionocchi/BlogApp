@@ -3,9 +3,6 @@ const express = require('express'),
   User = require('./models/user.js'),
   Post = require('./models/post.js'),
   Comment = require('./models/comment.js'),
-  {
-    Pool
-  } = require('pg'),
   ejs = require('ejs'),
   cookieParser = require('cookie-parser'),
   cookieSession = require('express-session'),
@@ -17,11 +14,6 @@ const express = require('express'),
     validationResult
   } = require('express-validator/check'),
   port = process.env.PORT || 3000;
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
-});
 
 app.set('view engine', 'ejs');
 

@@ -4,10 +4,10 @@ const Sequelize = require('sequelize'),
   basename = path.basename(__filename),
   config = require(__dirname + '/../config/config.json').development;
 
-const db = new Sequelize(config.database, config.username, config.password, {
-  host: config.host,
-  dialect: config.dialect,
-  operatorsAliases: false
+const db = new Sequelize(process.env.DATABASE_URL, {
+  dialect: "postgres",
+  operatorsAliases: false,
+  ssl: true
 });
 
 // const db = new Sequelize('bulletinboard', process.env.POSTGRES_USER, null, {
