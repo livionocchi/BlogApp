@@ -3,7 +3,7 @@ const express = require('express'),
   User = require('./models/user.js'),
   Post = require('./models/post.js'),
   Comment = require('./models/comment.js'),
-  const {
+  {
     Pool
   } = require('pg'),
   ejs = require('ejs'),
