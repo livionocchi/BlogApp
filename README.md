@@ -1,5 +1,7 @@
 # Blog Application
 
+A Blog Application made with Node, PostgreSQL, JQuery and Sass
+
 ## Features
 
 This is a basic blog application were a user can:
