@@ -15,3 +15,5 @@ This is a basic blog application were a user can:
     
 * **Be a guest user** and therefore can:
     * See all users' posts and comments
+
+Try it out with the [demo](https://livio-blog.herokuapp.com/)
