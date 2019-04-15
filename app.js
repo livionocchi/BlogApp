@@ -11,7 +11,7 @@ const express = require('express'),
   bcrypt = require('bcrypt'),
   {
     check,
-    validationResult
+    validationResult,
   } = require('express-validator/check'),
   port = process.env.PORT || 3000;
 
@@ -109,11 +109,9 @@ app.route('/register')
       let password = req.body.password;
       let confirmPassword = req.body.confirmPassword;
 
-      console.log(confirmPassword);
-
       const errors = validationResult(req);
 
-      if (!errors.isEmpty() && password !== confirmPassword) {
+      if (!errors.isEmpty() || password !== confirmPassword) {
         res.render('register', {
           errors: errors.array()
         })
