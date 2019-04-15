@@ -1,4 +1,8 @@
-# Blog
+# Blog Application
+
+A Blog Application made with Node, PostgreSQL, JQuery and Sass
+
+## Features
 
 This is a basic blog application were a user can:
 
@@ -15,3 +19,6 @@ This is a basic blog application were a user can:
     
 * **Be a guest user** and therefore can:
     * See all users' posts and comments
+
+## Demo
+Try it out with the [demo](https://livio-blog.herokuapp.com/)
